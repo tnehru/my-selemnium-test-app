@@ -7,6 +7,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,18 +29,20 @@ public class App
         System.out.println("Sum is: " + sum);
         System.out.println("Diff is : " + diff);
 
-        WebDriver driver = new ChromeDriver();
-
+        // WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        WebDriver driver = new ChromeDriver(options);
         //open URL
-        driver.get("http://107.23.199.119:8080/addressbook-2.0/");
+        driver.get("http://52.23.251.108:8080/addressbook-2.0/");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         //locate contact button and click
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div/div/div/div[1]/div/div/div[2]/div")).click();
         Thread.sleep(2000);
-        driver.findElement(By.id("gwt-uid-5")).sendKeys("kushi");
+        driver.findElement(By.id("gwt-uid-5")).sendKeys("prem");
         driver.findElement(By.id("gwt-uid-7")).sendKeys("Pavan");
         driver.findElement(By.id("gwt-uid-9")).sendKeys("9999999");
-        driver.findElement(By.id("gwt-uid-11")).sendKeys("kushi@pavan.com");
+        driver.findElement(By.id("gwt-uid-11")).sendKeys("prem@pavan.com");
         driver.findElement(By.id("gwt-uid-13")).sendKeys("06/01/2020,");
         driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[3]/div/div[1]/div")).click();
         Thread.sleep(4000);
