@@ -27,11 +27,9 @@ public class App
         options.addArguments("--headless");
         WebDriver driver = new ChromeDriver(options);
         //open URL
-        driver.get("http://3.88.143.127:8081");
+        driver.get("http://3.88.143.127:8081/contact.html");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         Thread.sleep(2000);
-        //locate email id and password fields and click login
-        driver.findElement(By.xpath("/html/body/div/header/div/nav/div/ul/li[4]/a")).click();
         driver.findElement(By.id("inputName")).sendKeys("Nehru");
         driver.findElement(By.id("inputNumber")).sendKeys("9898989898");
         driver.findElement(By.id("inputMail")).sendKeys("nehru@abc.com");
